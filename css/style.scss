@@ -1,0 +1,212 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  /*margin: 0 auto;*/
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.wrap {
+  width: 485px;
+
+}
+
+.top-bar {
+  height: 45px;
+  background: #1c1c1d;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-between;
+}
+
+.top-bar .user-pic img {
+  width: 42px;
+}
+
+.top-bar .chats-bottom {
+  font-size: 13pt;
+}
+
+.top-bar .chats-container::before {
+  content: "<";
+  font-family: "Kosugi Maru", sans-serif;
+  font-size: 24pt;
+  padding-right: 0.5rem;
+}
+
+.top-bar .user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.top-bar .last-seen {
+  font-size: 10pt;
+  color: #8e8e8e;
+}
+
+.main {
+  height: 470px;
+  background: antiquewhite;
+}
+
+.main .main-container {
+  background: grey;
+  padding: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main .main-container .bubble {
+  max-width: 75%;
+  background: black;
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.main .main-container.yours .bubble {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 15px;
+  margin-left: 10px;
+}
+
+.main .main-container.mine .bubble {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 10px;
+  margin-right: 10px;
+}
+
+/*---------------YOUR MESSAGES-------------------*/
+.main .main-container.yours .bubble.last::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -8px;
+  height: 10px;
+  width: 15px;
+  border-bottom-right-radius: 17px;
+  margin-top: 12px;
+  background: black fixed;
+}
+
+.main .main-container.yours .bubble.last::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10px;
+  width: 10px;
+  height: 17px;
+  background: grey;
+  border-bottom-right-radius: 10px;
+}
+
+/*---------------MINE MESSAGES-------------------*/
+.main .main-container.mine .bubble.last::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: -8px;
+  height: 10px;
+  width: 15px;
+  border-bottom-left-radius: 17px;
+  margin-top: 12px;
+  background: black fixed;
+}
+
+.main .main-container.mine .bubble.last::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 17px;
+  background: grey;
+  border-bottom-left-radius: 10px;
+}
+
+/*---------------MINE MESSAGES-------------------*/
+.main .bubble-text {
+  color: white;
+  padding-left: 5px;
+  padding-right: 39px;
+  hyphens: auto;
+}
+
+.main .bubble-time {
+  color: #8e8e8e;
+  font-size: 8pt;
+  padding-right: 10px;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  position: absolute;
+  /* padding-top: 15px; */
+  padding-bottom: 3px;
+}
+
+.mine {
+  justify-content: flex-end;
+}
+
+.footer-bar {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  background: #1c1c1d;
+  align-items: center;
+}
+
+.attachment-container {
+  padding: 9px;
+}
+
+.voice-container {
+  padding: 6px;
+
+
+}
+
+.writing-container {
+  width: 85%;
+  padding-top: 5px;
+}
+
+.attachment-container svg {
+  width: 22px;
+}
+
+.voice-container svg {
+  width: 25px;
+}
+
+.writing-container textarea {
+  border-radius: 20px;
+  background: #060606;
+  font-family: "Roboto", sans-serif;
+  color: #8e8e8e;
+  width: 101%;
+  margin: 0;
+  height: 33px;
+}
+
+.writing-container textarea:focus {
+  outline: none;
+}
+
+
