@@ -52,12 +52,12 @@ a {
   color: #8e8e8e;
 }
 
-.main {
+#main {
   height: 470px;
   background: antiquewhite;
 }
 
-.main .main-container {
+#main .main-container {
   background: grey;
   padding: 0.5vh;
   display: flex;
@@ -65,7 +65,7 @@ a {
   width: 100%;
 }
 
-.main .main-container .bubble {
+#main .main-container .bubble {
   max-width: 75%;
   background: black;
   display: inline-block;
@@ -75,20 +75,20 @@ a {
   border-top-right-radius: 15px;
 }
 
-.main .main-container.yours .bubble {
+#main .main-container.yours .bubble {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 15px;
   margin-left: 10px;
 }
 
-.main .main-container.mine .bubble {
+#main .main-container.mine .bubble {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 10px;
   margin-right: 10px;
 }
 
 /*---------------YOUR MESSAGES-------------------*/
-.main .main-container.yours .bubble.last::before {
+#main .main-container.yours .bubble.last::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -101,7 +101,7 @@ a {
   background: black fixed;
 }
 
-.main .main-container.yours .bubble.last::after {
+#main .main-container.yours .bubble.last::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -114,7 +114,7 @@ a {
 }
 
 /*---------------MINE MESSAGES-------------------*/
-.main .main-container.mine .bubble.last::before {
+#main .main-container.mine .bubble.last::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -127,7 +127,7 @@ a {
   background: black fixed;
 }
 
-.main .main-container.mine .bubble.last::after {
+#main .main-container.mine .bubble.last::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -140,14 +140,14 @@ a {
 }
 
 /*---------------MINE MESSAGES-------------------*/
-.main .bubble-text {
+#main .bubble-text {
   color: white;
   padding-left: 5px;
   padding-right: 39px;
   hyphens: auto;
 }
 
-.main .bubble-time {
+#main .bubble-time {
   color: #8e8e8e;
   font-size: 8pt;
   padding-right: 10px;
@@ -155,7 +155,6 @@ a {
   right: 0;
   display: inline-block;
   position: absolute;
-  /* padding-top: 15px; */
   padding-bottom: 3px;
 }
 
@@ -192,7 +191,7 @@ a {
   width: 25px;
 }
 
-.writing-container textarea {
+.writing-container input {
   border-radius: 20px;
   background: #060606;
   font-family: "Roboto", sans-serif;
@@ -200,9 +199,10 @@ a {
   width: 101%;
   margin: 0;
   height: 33px;
+  border-color: #8e8e8e;
 }
 
-.writing-container textarea:focus {
+.writing-container input:focus {
   outline: none;
 }
 
