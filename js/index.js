@@ -1,6 +1,9 @@
-const template = document.getElementById("bubble-template");
-const text = template.content.querySelector(".bubble-text");
-const time = template.content.querySelector(".bubble-time");
+const mineTemplate = document.getElementById("bubble-template-mine");
+const mineTextOfTemplate = mineTemplate.content.querySelector(".bubble-text");
+const mineTimeOfTemplate = mineTemplate.content.querySelector(".bubble-time");
+const yourTemplate = document.getElementById("bubble-template-yours");
+const yourTextOfTemplate = yourTemplate.content.querySelector(".bubble-text");
+const yourTimeOfTemplate = yourTemplate.content.querySelector(".bubble-time");
 const answers = [
     "ясно",
     "понятно",
@@ -9,13 +12,23 @@ const answers = [
     "(",
     "бывает"
 ];
+let randomNumber = getRandomNumber(5);
 
 
-const fillBubble = (myText, myTime) => {
-    text.textContent = myText;
-    time.textContent = myTime;
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * (max+1));
+}
+function getRandomAnswer(){
+    let randomAnswer = answers[`${randomNumber}`];
+    return randomAnswer;
+}
+console.log(getRandomAnswer());
 
-    const clone = document.importNode(template.content, true);
+
+const fillMineBubble = (myText, myTime) => {
+    mineTextOfTemplate.textContent = myText;
+    mineTimeOfTemplate.textContent = myTime;
+    const clone = document.importNode(mineTemplate.content, true);
     document.getElementById("main").appendChild(clone);
 };
 
@@ -23,12 +36,11 @@ function removeLast() {
     const listOfLasts = document.querySelectorAll('.last');
     let lastChildMain = document.getElementById('main').lastChild;
     const lastMine = document.querySelector('.main-container.mine .last:last-child');
-    //const lastYours = document.querySelector('.main-container.yours .last:last-child');
 
     if (listOfLasts.length > 1) {
         const previousElement = lastChildMain.previousSibling;
         lastMine.classList.remove('last');
-        //lastYours.classList.remove('last');
+
     }
 }
 
@@ -38,7 +50,7 @@ function sendMessage() {
     if (textInput.length === 0) return;
     const today = new Date();
     const currentTime = (`0${today.getHours()}`).slice(-2) + ':' + (`0${today.getMinutes()}`).slice(-2);
-    fillBubble(textInput, currentTime);
+    fillMineBubble(textInput, currentTime);
     input.value = null;
 }
 
