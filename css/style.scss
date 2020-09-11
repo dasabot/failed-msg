@@ -34,7 +34,12 @@ a {
 .top-bar .chats-bottom {
   font-size: 13pt;
 }
-
+.chats-container{
+  position: relative;
+  display: flex;
+  padding-left: 5px;
+  align-items: center;
+}
 .top-bar .chats-container::before {
   content: "<";
   font-family: "Kosugi Maru", sans-serif;
@@ -55,12 +60,18 @@ a {
 
 #main {
   height: 470px;
-  background: antiquewhite;
+  background: #efeeeb;
+  overflow-y: scroll;
+
+
+}
+#main::-webkit-scrollbar {
+  display: none;
 }
 
 #main .main-container {
-  background: grey;
-  padding: 0.5vh;
+
+  padding: 0.2vh;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -110,7 +121,7 @@ a {
   left: -10px;
   width: 10px;
   height: 17px;
-  background: grey;
+  background: #efeeeb;
   border-bottom-right-radius: 10px;
 }
 
@@ -136,7 +147,7 @@ a {
   right: -10px;
   width: 10px;
   height: 17px;
-  background: grey;
+  background: #efeeeb;
   border-bottom-left-radius: 10px;
 }
 
@@ -200,7 +211,7 @@ a {
   width: 101%;
   margin: 0;
   height: 33px;
-  border-color: #8e8e8e;
+  border: 1px solid #8e8e8e;
 }
 
 .writing-container input:focus {

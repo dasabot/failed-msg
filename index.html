@@ -74,9 +74,7 @@
             </svg>
         </a>
         <div class="writing-container">
-            <form>
-                <input type="text" id="input-text">
-            </form>
+            <input autocomplete="off" type="text" id="input-text">
         </div>
         <div class="voice-container">
             <a class="voice-pic">
@@ -99,66 +97,5 @@
 </body>
 
 <script src="js/index.js"></script>
-<script>
-    const template = document.getElementById("bubble-template");
-    const text = template.content.querySelector(".bubble-text");
-    const time = template.content.querySelector(".bubble-time");
-
-    const fillBubble = (myText, myTime) => {
-        text.textContent = myText;
-        time.textContent = myTime;
-
-        const clone = document.importNode(template.content, true);
-        document.getElementById("main").appendChild(clone);
-    };
-
-    function sendMessage (){
-
-        const input = document.getElementById('input-text');
-        const textInput = input.value;
-        const today = new Date();
-        const currentTime = today.getHours() + ":" + today.getMinutes();
-
-        fillBubble(textInput, currentTime);
-        input.value = null;
-
-    }
-
-    //sendButton.addEventListener("click", sendMessage);
-
-    document.addEventListener('keydown', function(event) {
-
-        if (event.code === 'Enter') {
-            sendMessage()
-        }
-        return false;
-    });
-    /*document.getElementById("send").onclick = () => {
-        const input = document.getElementById('input-text');
-        const textInput = input.value;
-        const today = new Date();
-        const currentTime = today.getHours() + ":" + today.getMinutes();
-
-        sendMessage(textInput, currentTime);
-        input.value = null;
-    };
-
-    const sendButton = document.getElementById("send");
-
-    function activateBubbleTemplate() {
-        const bubbleTemplate = document.getElementById("bubble-template");
-        const bubbleContainer = bubbleTemplate.content.querySelector(".main-container");
-
-        //return bubbleContainer.cloneNode(true);
-
-        const clone = document.importNode(bubbleContainer.content, true);
-        document.body.appendChild(clone);
-        return clone;
-
-    }
-
-    sendButton.addEventListener("click", activateBubbleTemplate);
-    console.log(activateBubbleTemplate());*/
-</script>
 </html>
 
