@@ -12,17 +12,6 @@ const answers = [
     "(",
     "бывает"
 ];
-let randomNumber = getRandomNumber(5);
-
-
-function getRandomNumber(max) {
-    return Math.floor(Math.random() * (max+1));
-}
-function getRandomAnswer(){
-    let randomAnswer = answers[`${randomNumber}`];
-    return randomAnswer;
-}
-console.log(getRandomAnswer());
 
 
 const fillMineBubble = (myText, myTime) => {
@@ -58,12 +47,38 @@ document.addEventListener('keydown', function (event) {
     if (event.code === 'Enter') {
         removeLast();
         sendMessage();
+        getAnswer();
     }
     return false;
 });
+//--------------------------------------------------------------------
+let randomNumber = getRandomNumber(5);
+const timerGetAnswer = setTimeout(getAnswer, 5000);
+const changeAnswer = setTimeout(getRandomNumber, 1000);
 
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * (max + 1));
+}
 
+function getRandomAnswer() {
+    return answers[`${randomNumber}`];
+}
 
+const fillYourBubble = (text, time) => {
+    yourTextOfTemplate.textContent = text;
+    yourTimeOfTemplate.textContent = time;
+    const clone = document.importNode(yourTemplate.content, true);
+    document.getElementById("main").appendChild(clone);
+};
+
+function getAnswer() {
+    const today = new Date();
+    const text = getRandomAnswer();
+    const currentTime = (`0${today.getHours()}`).slice(-2) + ':' + (`0${today.getMinutes()}`).slice(-2);
+    fillYourBubble(text, currentTime);
+}
+
+console.log(getAnswer());
 
 
 
