@@ -47,21 +47,20 @@ document.addEventListener('keydown', function (event) {
     if (event.code === 'Enter') {
         removeLast();
         sendMessage();
-        getAnswer();
+        setTimeout(getAnswer, 5000);
     }
     return false;
 });
+
 //--------------------------------------------------------------------
-let randomNumber = getRandomNumber(5);
-const timerGetAnswer = setTimeout(getAnswer, 5000);
-const changeAnswer = setTimeout(getRandomNumber, 1000);
 
 function getRandomNumber(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
-function getRandomAnswer() {
-    return answers[`${randomNumber}`];
+function getRandomElementFromAnswers() {
+    const randomNumber = getRandomNumber(5);
+    return answers[randomNumber];
 }
 
 const fillYourBubble = (text, time) => {
@@ -73,12 +72,13 @@ const fillYourBubble = (text, time) => {
 
 function getAnswer() {
     const today = new Date();
-    const text = getRandomAnswer();
+    const text = getRandomElementFromAnswers();
     const currentTime = (`0${today.getHours()}`).slice(-2) + ':' + (`0${today.getMinutes()}`).slice(-2);
+    const audio = document.querySelector(`audio`);
+    audio.currentTime = 0;
     fillYourBubble(text, currentTime);
+    audio.play();
 }
-
-console.log(getAnswer());
 
 
 
